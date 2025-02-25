@@ -1,0 +1,43 @@
+@use "../../helpers/variables" as *;
+
+.footer {
+  background-color: $colorBlack;
+  color: white;
+  padding: 10px ;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.address,
+.contact {
+  font-size: 14px;
+  line-height: 5px;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 10px;
+}
+
+.socialIcons a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+

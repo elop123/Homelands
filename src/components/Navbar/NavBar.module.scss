@@ -1,0 +1,68 @@
+@use "../../helpers/variables" as *;
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $colorBlack;
+  padding: 10px 30px;
+  color: white;
+  height: 70px;
+  //clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  //clip-path: polygon(0 0, 100% 0%, 100% 100%, 30% 60%, 0 100%);
+}
+.logo {
+  background-color: $colorBrown;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  h1 {
+    font-size: 45px;
+    font-weight: bold;
+    color: white;
+    font-family: $fontNavigation;
+    text-transform: capitalize;
+    margin: 0;
+  }
+}
+.navLink {
+  list-style-type: none;
+  display: flex;
+  gap: 30px;
+  float: right;
+ li {
+  display: inline-block;
+  text-align: right;
+}
+li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+.navLinks li a:hover,
+.navLinks li a.active {
+  color: $colorBrown;
+  font-weight: bold;
+}
+.searchBar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  overflow: hidden;
+}
+.searchBar input {
+  padding: 8px;
+  border: none;
+  outline: none;
+  width: 180px;
+}
+.searchBar button {
+  background: #ccc;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+}
