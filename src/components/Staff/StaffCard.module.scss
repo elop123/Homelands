@@ -3,19 +3,17 @@
 .staffCard {
     width: 80%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    //justify-content: center;
-    //padding: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
     margin: auto;
     font-family: $fontText;
-    align-items: stretch;
+    gap: 2px;
   }
   .articleStyle {
     background-color: transparent;
     border: 2px solid lightgrey; 
-    //padding: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 330px; 
+    max-width: 240px; 
+    width: 100%;
     margin: auto;
     position: relative;
     margin-bottom: 2rem;
@@ -26,23 +24,27 @@
     height: 300px; 
     object-fit: cover; 
   }
-
+.name{
+  cursor:pointer;
+  padding: 5px;
+}
 .textOverlay {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.8); 
-  padding: 8px ;
-  margin-left: 2px;
+  background: rgba(255, 255, 255, 0.8);
   text-align: left;
   border-top: 2px solid rgb(133, 133, 133);
+  cursor: pointer;
 }
-.position{
+.position {
   color: rgb(79, 79, 79);
-  margin: 5px 1px;
-  font-size: 14px;
-  white-space: nowrap; 
-  overflow: hidden;
+  padding: 5px ;
 }
-
-  
+.extraInfo {
+  transition: opacity 0.4s ease-in, transform 0.5s ease-in-out;
+  padding: 5px;
+}
+.email{
+  margin-bottom:8px;
+}

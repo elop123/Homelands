@@ -1,3 +1,5 @@
+@use "../../helpers/variables" as *;
+
 .houseCard {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -15,6 +17,7 @@
     background-color: #fff;
     max-width: 350px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    font-family: $fontText;
     &:hover {
         transform: scale(1); 
     }
@@ -24,19 +27,34 @@
         object-fit: cover;
         margin-bottom: 0.5rem;
     }
-    p {
+    .address {
         margin: 5px 0;
-        font-size: 14px;
+        font-size: 16px;
         color: #333;
     }
+    .street{
+        font-size: 14px;
+        margin-top: 8px;
+    }
+    .type{
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    .info{
+        display: flex;
+       justify-content: space-between;
+       font-size: 14px;
+    }
     .energyLabel {
-        width: 40px;
-        height: 40px;
-        background-color: lawngreen;
-        
+        //background-color: rgb(106, 208, 5);
+        color: whitesmoke;
+        display: inline-flex;  
+        align-items: center;
+        justify-content: center;
+        width: 24px;  
+        height: 24px;
     }
     .price {
-        font-weight: bold;
         font-size: 16px;
         color: #000;
     }

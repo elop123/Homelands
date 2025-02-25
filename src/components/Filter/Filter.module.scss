@@ -1,6 +1,34 @@
+@use "../../helpers/variables" as *;
+
 .filterSection{
     display: flex;
    justify-content: flex-end;
     gap: 16px;
     padding: 12px;
+    font-family: $fontText;
+    width: 94.9%;
+    margin-bottom: 1rem;
+}
+.input{
+    margin-right: 1rem;
+    margin-left: 2rem;
+    color: gray;
+    //-webkit-appearance: none; /* Remove default styles */
+    appearance: none;
+    height: 4px; 
+    background: grey; 
+    outline: none;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+    border-radius: 4px; 
+}
+.filterType{
+    width: 200px;
+    height: 25px;
+    border-radius: 5px;
+    font-family: $fontText;
+    border: 1px solid rgb(192, 192, 192);
+    &:active{
+        border: none;
+    }
 }

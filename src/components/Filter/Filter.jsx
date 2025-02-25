@@ -19,12 +19,14 @@ const[selectedPrice, setSelectedPrice] = useState()
    <div className="filterPrice">
         <label className="filterLabel">Sorter efter prisniveau</label>
         <input
+        className={style.input}
           type="range"
-          min="0"
+          min="500000"
           max="30000000"
+           step="10000"
           value={selectedPrice}
           onChange={handlePriceChange}
-          step="10000"
+         
         />
       </div>
 

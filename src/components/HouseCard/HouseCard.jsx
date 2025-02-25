@@ -61,7 +61,7 @@ useEffect(() => {
           <div className={style.info}>
           <p><span className={style.energyLabel}
                    style={{ background: energyLabelByColor(item.energy_label_name) }}>
-                    {item.energy_label_name}</span> {item.num_rooms} værelser, 
+                    <strong>{item.energy_label_name}</strong></span> {item.num_rooms} værelser, 
                     {item.floor_space}m² </p>
           <p><strong>{item.price},00 DKK</strong></p>
           </div>
