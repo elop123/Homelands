@@ -1,0 +1,23 @@
+@use "../../helpers/variables" as *;
+
+.reviewCard{
+    background-color: #fed9c9;
+    height: auto;
+    padding: 1.5rem;
+    font-family: $fontText;
+    
+}
+.review{
+    color: rgb(49, 49, 49);
+    padding: 1rem;
+    text-align: center;
+}
+.content{
+    color: rgb(70, 70, 70);
+    text-align: center;  
+}
+.name{
+    color: rgb(70, 70, 70);
+    text-align: center;  
+    padding: 1rem;
+}

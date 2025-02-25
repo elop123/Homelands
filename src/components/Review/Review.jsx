@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import style from '../Review/Review.module.scss'
+import { MonthAndYear } from '../../helpers/date'
 
 export const Review = () => {
 const[review,setReview]= useState([]);
@@ -43,9 +44,10 @@ useEffect(() => {
       {review.slice(0,1).map((item) => (
         <article key={item.id} className={style.articleStyle}>
           
-          <p>{item.title}</p>
-          <p>{item.content}</p>
-          <p>{item.user.firstname} {item.user.lastname}, {item.created_friendly.slice(0,10)}</p>
+          <p className={style.review}><strong>{item.title}</strong></p>
+          <p className={style.content}>"<em>{item.content}"</em></p>
+          <p className={style.name}>{item.user.firstname} {item.user.lastname}, &nbsp;
+            {MonthAndYear(item.created_friendly)}</p>
           
         </article>
       ))}

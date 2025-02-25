@@ -10,7 +10,7 @@ export const FrontPage = () => {
     <>
     <Slider />
     <HouseCard />
-    <Title title="Det siger kunderne" />
+    <Title title="Det siger kunderne:" />
     <Review />
     <Title title="Mød vores ansatte" />
     <StaffCard />

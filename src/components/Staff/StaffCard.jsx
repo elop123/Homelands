@@ -44,10 +44,12 @@ useEffect(() => {
       {staff.map((item) => (
         <article key={item.id} className={style.articleStyle}>
           <img  className={style.imgStaff} src={item.image} alt='staff_img' />
-          <p><strong>{item.firstname} {item.lastname}</strong></p>
-          <p>{item.position}</p>
-          <p>Email: {item.email}</p>
-          <p>Mobil: {item.phone}</p>
+          <div className={style.textOverlay}>
+          <p ><strong>{item.firstname} {item.lastname}</strong></p>
+          <p className={style.position}>{item.position}</p>
+          </div>
+          {/* <p>Email: {item.email}</p>
+          <p>Mobil: {item.phone}</p> */}
         </article>
       ))}
     </section>

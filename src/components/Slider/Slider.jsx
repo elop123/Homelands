@@ -5,10 +5,11 @@ import img2 from '../../assets/images/city/Aarhus.jpg'
 import img3 from '../../assets/images/city/utzon-center.jpg'
 import img4 from '../../assets/images/city/Sæbe.jpg'
 import img5 from '../../assets/images/city/Hadsund.jpg'
+import img6 from '../../assets/images/large/apartment-3.jpg'
 
 export const Slider = () => {
 
-  const images = [img1, img2, img3, img4, img5]
+  const images = [img6, img1, img2, img3, img4, img5]
 
   const [currentImage, setCurrentImage] = useState(0)
 

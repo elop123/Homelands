@@ -1,0 +1,8 @@
+@use "../../helpers/variables" as *;
+
+.title{
+    text-align: center;
+    padding: 2.5rem;
+    font-family: $fontText;
+    font-size: 18px;
+}

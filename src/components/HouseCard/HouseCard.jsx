@@ -39,6 +39,13 @@ useEffect(() => {
     return <p className={style.error}>{error}</p>;
   }
 
+  const energyLabelByColor = (energy_label_name) => 
+    energy_label_name === 'A' ? 'green' :
+    energy_label_name === 'B' || energy_label_name === 'C' ? 'yellow' :
+    energy_label_name === 'D' ? 'orange' :
+    energy_label_name === 'E' || energy_label_name === 'F' ? 'red' :
+    'gray';
+
 
   return (
     <section className={style.houseCard}>
@@ -52,7 +59,10 @@ useEffect(() => {
           <p className={style.street}><strong>{item.zipcode} {item.city}</strong></p>
           <p className={style.type}>{item.type}</p>
           <div className={style.info}>
-          <p><span className={style.energyLabel}>{item.energy_label_name}</span> {item.num_rooms} værelser, {item.floor_space}m² </p>
+          <p><span className={style.energyLabel}
+                   style={{ background: energyLabelByColor(item.energy_label_name) }}>
+                    {item.energy_label_name}</span> {item.num_rooms} værelser, 
+                    {item.floor_space}m² </p>
           <p><strong>{item.price},00 DKK</strong></p>
           </div>
           

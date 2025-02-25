@@ -3,42 +3,40 @@
 .footer {
   background-color: $colorBlack;
   color: white;
-  padding: 10px ;
+  padding: 12px  0;
   text-align: center;
   display: flex;
   justify-content: center;
   //width: 100%;
- 
 }
-
 .container {
   width: 90%;
   max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0.6rem;
 }
-
 .logo h1 {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   color: white;
+  font-family: $fontNavigation;
+  letter-spacing: 2px;
 }
-
 .address,
 .contact {
   font-size: 14px;
-  line-height: 5px;
+  font-family: $fontText;
+  text-align: left;
 }
-
 .socialIcons {
   display: flex;
   gap: 10px;
 }
-
 .socialIcons a {
   color: white;
-  font-size: 20px;
+  font-size: 28px;
   text-decoration: none;
 }
 
