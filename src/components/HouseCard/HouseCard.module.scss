@@ -1,3 +1,5 @@
+@use "../../helpers/variables" as *;
+
 .houseCard {
     display: flex;
     justify-content: center;
@@ -5,14 +7,17 @@
     gap: 20px;
     width: 90%;
     margin: auto;
+    margin-top: -3rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    font-family: $fontText;
 }
 .articleStyle {
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    background-color: #fff;
+    background-color:rgba(255, 255, 255, 0.5);
     max-width: 350px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     &:hover {
         transform: scale(1); 
     }
@@ -22,19 +27,34 @@
         object-fit: cover;
         margin-bottom: 0.5rem;
     }
-    p {
+    .house {
         margin: 5px 0;
-        font-size: 14px;
+        font-size: 16px;
         color: #333;
     }
+    .street{
+        font-size: 14px;
+        margin-top: 8px;
+    }
+    .type{
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    .info{
+        display: flex;
+       justify-content: space-between;
+       font-size: 14px;
+    }
     .energyLabel {
-        width: 40px;
-        height: 40px;
-        background-color: lawngreen;
-        
+        background-color: rgb(106, 208, 5);
+        color: whitesmoke;
+        display: inline-flex;  
+        align-items: center;
+        justify-content: center;
+        width: 24px;  
+        height: 24px;
     }
     .price {
-        font-weight: bold;
         font-size: 16px;
         color: #000;
     }

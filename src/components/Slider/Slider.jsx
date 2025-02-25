@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import style from '../Slider/Slider.module.scss'
+import img1 from '../../assets/images/city/Vejle.jpg'
+import img2 from '../../assets/images/city/Aarhus.jpg'
+import img3 from '../../assets/images/city/utzon-center.jpg'
+import img4 from '../../assets/images/city/Sæbe.jpg'
+import img5 from '../../assets/images/city/Hadsund.jpg'
 
 export const Slider = () => {
 
-  const images = [
-    "https://api.mediehuset.net/images/homelands/large/house-1.jpg",
-        "https://api.mediehuset.net/images/homelands/large/house-2.jpg",
-        "https://api.mediehuset.net/images/homelands/large/apartment-2.jpg",
-        "https://api.mediehuset.net/images/homelands/large/house-6.jpg",
-        "https://api.mediehuset.net/images/homelands/large/house-3.jpg"]
+  const images = [img1, img2, img3, img4, img5]
 
   const [currentImage, setCurrentImage] = useState(0)
 
