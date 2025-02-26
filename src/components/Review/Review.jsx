@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import style from '../Review/Review.module.scss'
 import { MonthAndYear } from '../../helpers/date'
+import { ReviewCard } from '../ReviewCard/ReviewCard';
 
 export const Review = () => {
 const[review,setReview]= useState([]);
@@ -39,6 +40,7 @@ useEffect(() => {
 
 
   return (
+    <>
     <section className={style.reviewCard}>
       
       {review.slice(0,1).map((item) => (
@@ -51,6 +53,11 @@ useEffect(() => {
           
         </article>
       ))}
+    
     </section>
+    <section className={style.reviews}>
+        <ReviewCard />
+    </section>
+    </>
   );
 };

@@ -1,125 +1,147 @@
 @use "../../helpers/variables" as *;
 
-.iconCircle{
-    
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.7);
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        color: rgb(141, 141, 141);
-        &:hover {
-          background: rgba(255, 255, 255, 1);
-        }
-      }
-     
-      
 .articleStyle {
   display: flex;
   flex-direction: column;
   gap: 20px;
   background-color: rgba(255, 255, 255, 0.1);
- 
 }
 .houseImg {
   width: 100%;
   height: 400px;
   object-fit: cover;
 }
-.houseInfo {
-  background-color: rgba(255, 255, 255, 0.7);
-  background-color: green;
-  font-size: 18px;
-  line-height: 1.5;
-  width: 80%;
-  //margin-top:  -5rem;
-  font-family: $fontText;
-  margin: auto ;
-  padding: 1.5rem;
- 
-}
-.houseIcons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 15px 0;
+.address{
+  margin-left: 1.5rem;
 }
 .house{
   font-size: 16px;
   color: #333;
   font-family: $fontText;
   padding: 5px;
+  margin-left: 1.5rem;
 }
 .infoSection {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  align-items: center;
+  gap: 60px;
   padding: 1.5rem;
-  justify-content: center;
- 
- 
+  background-color: rgba(255, 255, 255, 0.5);
+  width:80%;
+  margin: auto;
+  margin-top: -10rem;
 }
-
-
-.infoColumn {
-  text-align: left;
-}
-
-.iconsColumn {
+.iconCircle{
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  color: rgb(141, 141, 141);
+  &:hover {
+    background: rgba(255, 255, 255, 1);
+  }
+} 
+.infoColumn {
+  text-align: left;
+  font-family: $fontText;
+  font-size: 20px;
+  margin: auto;
+}
+.iconsColumn {
+  display: flex;
   gap: 15px;
+  margin: auto;
+}
+.price{
+  font-family: $fontText;
+  color: #333;
+  padding: 5px;
+}
+.modalImage {
+  width: 400px;  
+  height: 200px;  
+  display: block;
+  margin: auto;
+}
+.propertyDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  gap: 108px;
+  //max-width: 1100px;
+  margin: auto;
+  padding: 20px 0;
+}
+.detailsColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  font-family: $fontText;
+  color: #333;
+}
+.detailRow {
+  display: flex;
+  justify-content: space-between; 
+  font-size: 16px;
+  width: 100%;
+}
+.label {
+  font-weight: normal;
+}
+.value {
+  font-weight: bold;
+  text-align: right;
+}
+      
+.descriptionInfo {
+  display: grid;
+  grid-template-columns: 2fr 1fr; 
+  gap: 40px;
+  //max-width: 1100px;
+  margin: 2rem auto ;
+  //padding: 20px 0;
+  //align-items: start;
+  width: 80%;
+  
+}
+.houseDescription {
+  .text{
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  font-family: $fontText;
+  text-align: left;
+margin-left: 4rem;}
+}
+.houseContact {
+  text-align: left;
+  font-family: $fontText;
+  margin-left: 2rem;
+}
+.houseContact h2 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+}
+.staffImage {
+  width: 150px;
+  height: auto;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.houseContact p {
+  font-size: 13px;
+  color: #333;
+  
+}
+.houseContact p strong {
+  font-weight: bold;
 }
 
-.priceColumn {
-  text-align: right;
-  font-size: 20px;
-  font-weight: bold;
-}
-.priceDetails {
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 10px;
-}
       
-      .propertyDetails {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-      }
       
-      .detailsColumn {
-        flex: 1;
-      }
-      
-      .description {
-        font-size: 16px;
-        line-height: 1.5;
-        color: #555;
-        margin-top: 15px;
-      }
-      
-      .contact {
-        text-align: center;
-        margin-top: 20px;
-      
-        img {
-          width: 100px;
-          border-radius: 50%;
-          margin-top: 10px;
-        }
-      }
-      
-      .modalImage {
-        width: 400px;  
-        height: 200px;  
-        display: block;
-        margin: auto;
-       
-      }

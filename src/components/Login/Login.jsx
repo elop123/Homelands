@@ -64,7 +64,8 @@ export const Login = () => {
   };
 
   return (
-    <div style={{ maxWidth: '500px', width: '80%', marginBottom: '12rem' }}>
+    <div style={{ maxWidth: '500px', width: '80%', marginTop:'10rem', marginBottom:'9rem' }}>
+      <h2 className={style.login}>Login</h2>
       <p className={style.text}>Indtast dit brugernavn og adgangskode for at logge ind</p>
       <form onSubmit={handleLogin}>
         {message && <b style={{ color: 'green' }}>{message}</b>}

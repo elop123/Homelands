@@ -68,13 +68,14 @@ const toggleFavorite = () => {
         <img className={style.houseImg} src={houseDetails.images[0]?.filename.medium} alt="house_img" />
          <div className={style.infoSection}>
           <div className={style.infoColumn}>
-          <p><strong>{houseDetails.address}</strong></p>
+          <p className={style.address}><strong>{houseDetails.address}</strong></p>
           <p className={style.house}>{houseDetails.zipcode} {houseDetails.city}</p>
           <p className={style.house}>{houseDetails.type} | {houseDetails.floor_space}m² |  {houseDetails.num_rooms} værelser</p>
           <p className={style.house}>Set {houseDetails.num_clicks} gange</p>
           </div>
           <div className={style.iconsColumn}>
-          <div className={style.iconCircle} onClick={() => openModal(<img className={style.modalImg}  src={houseDetails.images[0]?.filename.medium} alt="house_img" />)}><FaCamera /></div>
+          <div className={style.iconCircle} onClick={() => openModal(<img className={style.modalImg}  src={houseDetails.images[0]?.filename.medium} alt="house_img" />)}>
+          <FaCamera size={30} /></div>
           <div className={style.iconCircle}> 
             <a href="https://www.flaticon.com/free-icon/layout_5505998" 
             target="_blank" rel="noopener noreferrer"><img 
@@ -82,52 +83,60 @@ const toggleFavorite = () => {
             alt="House_plan_icon" 
             style={{ width: '30px', height: '30px' }} onClick={() => openModal(<img src={getRoomImage(houseDetails.num_rooms)} alt="floor_plan" className={style.modalImage} />)}/></a>
             </div>
-          <div className={style.iconCircle} ><FaMapMarkerAlt /></div>
+          <div className={style.iconCircle} ><FaMapMarkerAlt size={30} /></div>
           <div className={style.iconCircle} onClick={toggleFavorite} >{favorites.includes(houseDetails.id) ? (
-    <FaHeart style={{ color: "red" }} />
+    <FaHeart  style={{ color: "red" }} />
   ) : (
-    <CiHeart style={{ color: "black" }} />
+    <CiHeart size={30} style={{ color: "black" }} />
   )}</div>
           </div>
           <div className={style.PriceColumn}>
-          <p>Kontantpris <strong>{houseDetails.price} DKK</strong></p>
-          <p>Udbetaling: {houseDetails.payout}</p>
-          <p>Ejergift per måned: {houseDetails.cost}</p>
+          <p className={style.price}>
+          <strong>Kontantpris: {Math.round(houseDetails.price)}</strong></p>
+          <p className={style.price}>Udbetaling: {Math.round(houseDetails.payout)}</p>
+          <p className={style.price}>Ejergift per måned: {Math.round(houseDetails.cost)}</p>
+          </div>
           </div>
           
-          <div className={style.bigInfo}>
-          <p>Sagsnr. {houseDetails.id}</p>
-          <p>Boligareal {houseDetails.floor_space}</p>
-          <p>Grundareal</p>
-          <p>Antal rum {houseDetails.num_rooms}</p>
-          <p>Antal plan {houseDetails.floor_space}</p>
-          </div>
-          <div className={style.bigInfo2}>
-          <p>Kælder {houseDetails.basement_space}</p>
-          <p>Byggeår {houseDetails.year_construction}</p>
-          <p>Ombygget {houseDetails.year_rebuilt}</p>
-          <p>Enrgymærke {houseDetails.energy_label_name}</p>
-          <p>Ligetid </p>
-          </div>
-          <div className={style.priceInfo}>
-          <p>Kontantpris <strong>{houseDetails.price}</strong></p>
-          <p>Udbetaling: {houseDetails.payout}</p>
-          <p>Brutto ex. ejergift {houseDetails.gross}</p>
-          <p>Netto ex. ejergift {houseDetails.net}</p>
-          <p>Ejergift per måned: {houseDetails.cost}</p>
-          </div>
-          <div className={style.houseDescription}>
-          <p>{houseDetails.description}</p>
-          </div>
-          <div className={style.houseContact}>
-          <h2>Kontakt</h2>
-          <img src={houseDetails.staff.image} alt="staff_img" />
-          <p>{houseDetails.staff.firstname} {houseDetails.staff.lastname}</p>
-          <p>{houseDetails.staff.position}</p>
-          <p>Mobil: {houseDetails.staff.phone}</p>
-          <p>Email: {houseDetails.staff.email}</p>
-          </div>
-          </div>
+        <div className={style.propertyDetails}>
+      <div className={style.detailsColumn}>
+        <div className={style.detailRow}><span className={style.label}>Sagsnr.</span> <span className={style.value}>{houseDetails.id}</span></div>
+        <div className={style.detailRow}><span className={style.label}>Boligareal</span> <span className={style.value}>{houseDetails.floor_space} m²</span></div>
+        <div className={style.detailRow}><span className={style.label}>Grundareal</span> <span className={style.value}>{houseDetails.plot_space} m²</span></div>
+        <div className={style.detailRow}><span className={style.label}>Antal rum</span> <span className={style.value}>{houseDetails.num_rooms}</span></div>
+        <div className={style.detailRow}><span className={style.label}>Antal plan</span> <span className={style.value}>{houseDetails.num_floors}</span></div>
+      </div>
+      <div className={style.detailsColumn}>
+        <div className={style.detailRow}><span className={style.label}>Kælder</span> <span className={style.value}>{houseDetails.basement_space} m²</span></div>
+        <div className={style.detailRow}><span className={style.label}>Byggeår</span> <span className={style.value}>{houseDetails.year_construction}</span></div>
+        <div className={style.detailRow}><span className={style.label}>Ombygget</span> <span className={style.value}>{houseDetails.year_rebuilt}</span></div>
+        <div className={style.detailRow}><span className={style.label}>Energimærke</span> <span className={style.value}>{houseDetails.energy_label_name}</span></div>
+        <div className={style.detailRow}><span className={style.label}>Liggetid</span> <span className={style.value}>{houseDetails.days_on_market} dage</span></div>
+      </div>
+      <div className={style.detailsColumn}>
+        <div className={style.detailRow}><span className={style.label}>Kontantpris</span> <span className={style.value}>{houseDetails.price.toLocaleString("da-DK")}</span></div>
+        <div className={style.detailRow}><span className={style.label}>Udbetaling</span> <span className={style.value}>{houseDetails.payout.toLocaleString("da-DK")}</span></div>
+        <div className={style.detailRow}><span className={style.label}>Brutto ex. ejerudgift &nbsp;</span> <span className={style.value}>{houseDetails.gross.toLocaleString("da-DK")}</span></div>
+        <div className={style.detailRow}><span className={style.label}>Netto ex. ejerudgift</span> <span className={style.value}>{houseDetails.net.toLocaleString("da-DK")}</span></div>
+        <div className={style.detailRow}><span className={style.label}>Ejergift</span> <span className={style.value}>{houseDetails.cost.toLocaleString("da-DK")}</span></div>
+      </div>
+        </div>
+
+        <div className={style.descriptionInfo}>
+        <div className={style.houseDescription}>
+        <p className={style.text}>{houseDetails.description}</p>
+        </div>
+        <div className={style.houseContact}>
+        <h2>Kontakt</h2>
+        <img src={houseDetails.staff.image} alt="staff_img" className={style.staffImage} />
+        <p><strong>{houseDetails.staff.firstname} {houseDetails.staff.lastname}</strong></p>
+        <p>{houseDetails.staff.position}</p>
+        <p>Mobil: {houseDetails.staff.phone}</p>
+        <p>Email: {houseDetails.staff.email}</p>
+        </div>
+        </div>
+
+          
           <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
           
             {modalContent} 

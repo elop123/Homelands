@@ -21,3 +21,13 @@
     text-align: center;  
     padding: 1rem;
 }
+.reviews{
+    font-family: $fontText;
+    text-align: center;
+    padding: 1rem;
+    color: rgb(58, 58, 245);
+    cursor: pointer;
+    &:hover{
+        color:$colorBrown;
+    }
+}

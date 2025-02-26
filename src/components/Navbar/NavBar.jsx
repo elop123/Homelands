@@ -1,6 +1,6 @@
 import React from "react"
 import { useContext, useState } from "react"
-import { FaSearch } from "react-icons/fa"
+import { FaSearch,  FaBars } from "react-icons/fa"
 import { NavLink, useNavigate } from "react-router-dom"
 import style from '../Navbar/NavBar.module.scss'
 import { CiHeart } from "react-icons/ci"
@@ -10,6 +10,7 @@ export const NavBar = () => {
   const { userData, logout, favorites } = useContext(UserContext)
   const navigate= useNavigate()
   const [searchWord, setSearchWord] = useState("")
+  const [menuOpen, setMenuOpen] = useState(false);
   
   console.log(searchWord)
 
@@ -18,7 +19,10 @@ export const NavBar = () => {
         <div className={style.logo}>
         <h1 className={style.logoHouse} onClick={()=>navigate ("/")}> HomeLands</h1>
         </div>
-      <ul className={style.navLink}>
+        <div className={style.menuToggle} onClick={() => setMenuOpen(!menuOpen)}>
+        <FaBars />
+      </div>
+      <ul className={`${style.navLink} ${menuOpen ? style.showMenu : ""}`}>
         <li><NavLink to="/" >Forside</NavLink></li>
         <li><NavLink to="/houses">Boliger til salg</NavLink></li>
         {userData ? (
@@ -37,13 +41,13 @@ export const NavBar = () => {
         <form onSubmit={(e) => { e.preventDefault(), navigate(`/search/${searchWord}`) }}>
           <input
             name="search"
-            type="text"
+            type="search"
             value={searchWord}
             onChange={(e) => setSearchWord(e.target.value)}
             placeholder="Indtast søgeord"
             className={style.searchInput}
           />
-          <button type="submit">
+          <button className={style.btn} type="submit">
             <FaSearch size={14} />
           </button>
         </form>
