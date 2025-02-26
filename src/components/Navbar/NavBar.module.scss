@@ -23,7 +23,7 @@
   height: 50px;
   margin-left: 6rem;
   margin-top:1.5rem ;
-  position: relative;
+ 
   border: 2px solid $colorBlack;
  .logoHouse{
   cursor: pointer;
@@ -94,4 +94,10 @@
 .navBar a:visited,
 .navBar a:hover {
   text-decoration: none;
+}
+.logoutBtn{
+  font-family: $fontNavigation;
+  cursor: pointer;
+  color: $colorBrown;
+  font-size: 20px;
 }

@@ -1,3 +1,5 @@
+@use "../../helpers/variables" as *;
+
 .iconCircle{
     
         display: flex;
@@ -10,4 +12,114 @@
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
         cursor: pointer;
         color: rgb(141, 141, 141);
+        &:hover {
+          background: rgba(255, 255, 255, 1);
+        }
+      }
+     
+      
+.articleStyle {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+ 
+}
+.houseImg {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+.houseInfo {
+  background-color: rgba(255, 255, 255, 0.7);
+  background-color: green;
+  font-size: 18px;
+  line-height: 1.5;
+  width: 80%;
+  //margin-top:  -5rem;
+  font-family: $fontText;
+  margin: auto ;
+  padding: 1.5rem;
+ 
+}
+.houseIcons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+.house{
+  font-size: 16px;
+  color: #333;
+  font-family: $fontText;
+  padding: 5px;
+}
+.infoSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: center;
+  padding: 1.5rem;
+  justify-content: center;
+ 
+ 
+}
+
+
+.infoColumn {
+  text-align: left;
+}
+
+.iconsColumn {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.priceColumn {
+  text-align: right;
+  font-size: 20px;
+  font-weight: bold;
+}
+.priceDetails {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+      
+      .propertyDetails {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      
+      .detailsColumn {
+        flex: 1;
+      }
+      
+      .description {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #555;
+        margin-top: 15px;
+      }
+      
+      .contact {
+        text-align: center;
+        margin-top: 20px;
+      
+        img {
+          width: 100px;
+          border-radius: 50%;
+          margin-top: 10px;
+        }
+      }
+      
+      .modalImage {
+        width: 400px;  
+        height: 200px;  
+        display: block;
+        margin: auto;
+       
       }

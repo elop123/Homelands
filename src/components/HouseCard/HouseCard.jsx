@@ -9,6 +9,7 @@ const[error, setError] = useState(null);
 
 const navigate= useNavigate()
 
+
 const url=`https://api.mediehuset.net/homelands/homes`;
 
 useEffect(() => {

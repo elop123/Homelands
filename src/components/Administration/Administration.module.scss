@@ -1,0 +1,46 @@
+@use "../../helpers/variables" as *;
+
+.adminContainer {
+    text-align: left;
+    max-width: 800px;
+    margin: 20px ;
+    padding: 20px;
+    font-family: $fontText;
+    margin-bottom: 8rem;
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+      font-family: $fontText;
+      padding: 0.5rem;
+    }
+    .subtitle {
+      color: #666;
+      font-size: 14px;
+      padding: 0.5rem;
+    }
+  }
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+th {
+      font-weight: bold;
+    }
+  }
+.deleteBtn {
+    color: red;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-weight: bold;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  

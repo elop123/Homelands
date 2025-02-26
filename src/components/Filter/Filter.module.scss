@@ -21,6 +21,7 @@
     opacity: 0.9;
     transition: opacity 0.2s;
     border-radius: 4px; 
+    cursor: pointer;
 }
 .filterType{
     width: 200px;
@@ -28,7 +29,11 @@
     border-radius: 5px;
     font-family: $fontText;
     border: 1px solid rgb(192, 192, 192);
+    cursor: pointer;
     &:active{
         border: none;
+    }
+    &:focus{
+        outline: none;
     }
 }

@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import style from '../AllHouses/AllHouses.module.scss'
 import { CiHeart } from "react-icons/ci"
 import { useNavigate } from 'react-router-dom'
 
 export const AllHouses = ({filterHouse, sortByPrice}) => {
+ 
 const[house,setHouse]= useState([]);
 const[loading, setLoading] = useState(true);
 const[error, setError] = useState(null);
+
+const{keyword} =useParams()
+console.log('vores keyword',keyword )
+
 const navigate = useNavigate()
 
 const url=`https://api.mediehuset.net/homelands/homes`;
@@ -65,7 +71,7 @@ const energyLabelByColor = (energy_label_name) =>
                  className={style.articleStyle}
                  onClick={() => navigate(`/houses/${item.id}`)}>
             <img className={style.houseImg} src={item.images[0].filename.medium} alt="house_img" />
-          <p className={style.address}><strong>{item.address}</strong><CiHeart /> </p>
+          <p className={style.address}><strong>{item.address}</strong>&nbsp;<CiHeart size={24} /> </p>
           <p className={style.street}><strong>{item.zipcode} {item.city}</strong></p>
           <p className={style.type}>{item.type}</p>
            <div className={style.info}>

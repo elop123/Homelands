@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import { useContext } from 'react'
+import { useParams } from 'react-router-dom'
 import style from '../HouseCardDetails/HouseCardDetails.module.scss'
-import { FaCamera, FaMapMarkerAlt } from 'react-icons/fa';
-import { CiHeart } from 'react-icons/ci';
+import { FaCamera, FaMapMarkerAlt, FaHeart } from 'react-icons/fa'
+import { CiHeart } from 'react-icons/ci'
+import { Modal } from '../Modal/Modal'
+import { UserContext } from '../../context/userContext'
 import house_icon from '../../assets/icons/layout.png'
 
 export const HouseCardDetails = () => {
 const[houseDetails,setHouseDetails]= useState(null);
 const[loading, setLoading] = useState(true);
 const[error, setError] = useState(null);
+const [isModalOpen, setIsModalOpen] = useState(false);
+const [modalContent, setModalContent] = useState(null);
+const { favorites, setFavorites } = useContext(UserContext);
 const { id } = useParams();
 
 const url=`https://api.mediehuset.net/homelands/homes/${id}`
@@ -41,6 +47,18 @@ useEffect(() => {
     return <p className={style.error}>{error}</p>;
   }
 
+const openModal = (content) => {
+  setModalContent(content);
+  setIsModalOpen(true)
+}
+
+const toggleFavorite = () => {
+  if (favorites.includes(houseDetails.id)) {
+      setFavorites(favorites.filter((fav) => fav !== houseDetails.id));
+  } else {
+      setFavorites([...favorites, houseDetails.id]);
+  }
+}
 
   return (
     <section className={style.houseCard}>
@@ -48,29 +66,35 @@ useEffect(() => {
       {houseDetails  &&(
         <article key={houseDetails.id} className={style.articleStyle}>
         <img className={style.houseImg} src={houseDetails.images[0]?.filename.medium} alt="house_img" />
-         <div className={style.houseInfo}>
-          <p>{houseDetails.address}</p>
-          <p>{houseDetails.zipcode} {houseDetails.city}</p>
-          <p>{houseDetails.type} | {houseDetails.floor_space}m² |  {houseDetails.num_rooms} værelser</p>
-          <p>Set {houseDetails.num_clicks} gange</p>
-        </div>
-          <div className={style.houseIcons}>
-          <div className={style.iconCircle}><FaCamera /></div>
+         <div className={style.infoSection}>
+          <div className={style.infoColumn}>
+          <p><strong>{houseDetails.address}</strong></p>
+          <p className={style.house}>{houseDetails.zipcode} {houseDetails.city}</p>
+          <p className={style.house}>{houseDetails.type} | {houseDetails.floor_space}m² |  {houseDetails.num_rooms} værelser</p>
+          <p className={style.house}>Set {houseDetails.num_clicks} gange</p>
+          </div>
+          <div className={style.iconsColumn}>
+          <div className={style.iconCircle} onClick={() => openModal(<img className={style.modalImg}  src={houseDetails.images[0]?.filename.medium} alt="house_img" />)}><FaCamera /></div>
           <div className={style.iconCircle}> 
             <a href="https://www.flaticon.com/free-icon/layout_5505998" 
             target="_blank" rel="noopener noreferrer"><img 
             src={house_icon}
             alt="House_plan_icon" 
-            style={{ width: '30px', height: '30px' }}
-          /></a></div>
+            style={{ width: '30px', height: '30px' }} onClick={() => openModal(<img src={getRoomImage(houseDetails.num_rooms)} alt="floor_plan" className={style.modalImage} />)}/></a>
+            </div>
           <div className={style.iconCircle} ><FaMapMarkerAlt /></div>
-          <div className={style.iconCircle}><CiHeart /></div>
+          <div className={style.iconCircle} onClick={toggleFavorite} >{favorites.includes(houseDetails.id) ? (
+    <FaHeart style={{ color: "red" }} />
+  ) : (
+    <CiHeart style={{ color: "black" }} />
+  )}</div>
           </div>
-          <div className={style.Price}>
+          <div className={style.PriceColumn}>
           <p>Kontantpris <strong>{houseDetails.price} DKK</strong></p>
           <p>Udbetaling: {houseDetails.payout}</p>
           <p>Ejergift per måned: {houseDetails.cost}</p>
           </div>
+          
           <div className={style.bigInfo}>
           <p>Sagsnr. {houseDetails.id}</p>
           <p>Boligareal {houseDetails.floor_space}</p>
@@ -103,6 +127,12 @@ useEffect(() => {
           <p>Mobil: {houseDetails.staff.phone}</p>
           <p>Email: {houseDetails.staff.email}</p>
           </div>
+          </div>
+          <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+          
+            {modalContent} 
+            
+          </Modal>
         </article>
       )}
     </section>

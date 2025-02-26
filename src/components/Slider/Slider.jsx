@@ -31,7 +31,7 @@ export const Slider = () => {
   return (
     <section className={style.slider}>
       <div className={style.slide}>
-        <img class={style.imgSlider} src={images[currentImage]} alt="img_slide" />
+        <img className={style.imgSlider} src={images[currentImage]} alt="img_slide" />
       </div>
     </section>
   )
