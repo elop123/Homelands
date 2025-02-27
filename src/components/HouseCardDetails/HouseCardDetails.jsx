@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import style from '../HouseCardDetails/HouseCardDetails.module.scss'
 import { FaCamera, FaMapMarkerAlt, FaHeart } from 'react-icons/fa'
 import { CiHeart } from 'react-icons/ci'
-import { Modal } from '../Modal/Modal'
+import {Modal} from '../Modal/Modal'
 import { UserContext } from '../../context/userContext'
 import house_icon from '../../assets/icons/layout.png'
 import room1 from '../../assets/images/plans/1-room.jpg';
@@ -13,6 +13,8 @@ import room3 from '../../assets/images/plans/3-room-1.jpg';
 import room4 from '../../assets/images/plans/4-room-1.jpg';
 import room5 from '../../assets/images/plans/5-room-1.jpg';
 import room6 from '../../assets/images/plans/6-room-1.jpg';
+import room7 from '../../assets/images/plans/7-room-1.jpg';
+import room9 from '../../assets/images/plans/9-room-1.jpg';
 
 export const HouseCardDetails = () => {
 const[houseDetails,setHouseDetails]= useState(null);
@@ -74,7 +76,10 @@ const plans = [
   { num_rooms: '3', img: room3 },
   { num_rooms: '4', img: room4 },
   { num_rooms: '5', img: room5 },
-  { num_rooms: '6', img: room6 }
+  { num_rooms: '6', img: room6 },
+  { num_rooms: '7', img: room7 },
+  { num_rooms: '9', img: room9 },
+
 ];
 
  //Function to get the floor plan image

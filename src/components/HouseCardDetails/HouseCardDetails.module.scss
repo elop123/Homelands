@@ -143,9 +143,9 @@ margin-left: 4rem;}
   font-weight: bold;
 }
 
-@media (max-width: 768px) { // 📏 Tablet styles
+@media (max-width: 768px) { 
   .infoSection {
-    grid-template-columns: 1fr 1fr; // Two columns instead of three
+    grid-template-columns: 1fr 1fr; 
     gap: 30px;
     width: 90%;
   }

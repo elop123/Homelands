@@ -1,84 +1,69 @@
-
-.reviewSection {
-    //background-color: #333; 
-    padding: 20px;
-    color: white;
-    width:100%; 
-    margin: 20px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .writeReview{
-  background: none; 
-  color: blue; 
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  padding: 5px;
+.reviewForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 400px;
   margin: auto;
+  background-color: #333; 
+  padding: 1.5rem;
+}
+.reviewColumn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.reviewLabel {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  white-space: nowrap;
+  width: 70px; 
+  text-align: right; 
+}
+.reviewInput,
+.textarea,
+.selectStar {
+  flex-grow: 1;
+  width: 100%; 
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  background: white;
+  color: black;
+}
+.reviewInput {
+  height: 35px;
+}
+.textarea {
+  height: 80px;
+  resize: none;
+}
+.selectStar {
+  background-color: #fff;
+  font-size: 14px;
+}
+.btnSubmit {
+  padding: 8px 15px;
+  border: none;
+  background: #ccc;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-top: 10px;
+  &:hover {
+    background-color: #999;
   }
-  .writeReview{
-    cursor: pointer;
-    color:rgb(68, 68, 247);
-    font-size: 16px;
-    text-decoration: underline;
-    margin-bottom: 10px;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 500px;
-    margin: auto;
-    background-color: #333;
-    padding: 2rem;
-  }
-  
-  label {
-    font-size: 14px;
-    margin-bottom: 5px;
-    display: block;
-  }
-  
-  .inputTitle, .textarea {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    background: white;
-    color: black;
-  }
-  
-  textarea {
-    height: 80px;
-  }
-  
- .submit {
-    padding: 8px 15px;
-    border: none;
-    background: #ccc;
-    color: black;
-    font-weight: bold;
-    border-radius: 3px;
-    cursor: pointer;
-    align-self: flex-end; 
-  
-    &:hover {
-      background: #aaa;
-    }
-  }
-  .buttons{
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-  }
-  
-  .errorMessage{
-    text-decoration: none;
-    margin: auto;
-    color: orange;
-  }
+}
+.buttons {
+  display: flex;
+  justify-content: flex-end; 
+  width: 100%;
+  gap: 10px; 
+  margin-top: 10px;
+}

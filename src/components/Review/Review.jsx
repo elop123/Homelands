@@ -56,7 +56,7 @@ useEffect(() => {
     
     </section>
     <section className={style.reviews}>
-        <ReviewCard />
+        <ReviewCard/>
     </section>
     </>
   )
