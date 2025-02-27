@@ -7,9 +7,7 @@ export const Administration = () => {
 const { logout } = useContext(UserContext)
   const reviews = [
     { id: 1, title: 'Dejligt køb', date: '12. August 2021' },
-    { id: 2, title: 'Vi er stadig glade...', date: '05. August 2021' },
-    { id: 3, title: 'Flot service', date: '01. Juli 2021' },
-    { id: 4, title: 'Smukt...', date: '23. Maj 2021' },
+   
   ]
 
   const handleLogout = () => {

@@ -16,10 +16,10 @@ const[selectedPrice, setSelectedPrice] = useState()
 
   return (
  <section className={style.filterSection}>
-   <div className="filterPrice">
-        <label className="filterLabel">Sorter efter prisniveau</label>
+   <div className={style.filterPrice}>
+        <label className={style.filterLabel}>Sorter efter prisniveau</label>
         <input
-        className={style.input}
+        className={style.inputRange}
           type="range"
           min="500000"
           max="30000000"
@@ -30,7 +30,7 @@ const[selectedPrice, setSelectedPrice] = useState()
         />
       </div>
 
-      <div className="filterHouse">
+      <div className={style.filterHouse}>
         <select
           className={style.filterType} 
           onChange={handleFilterHouse}>

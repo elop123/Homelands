@@ -9,7 +9,6 @@
     width: 90%;
     margin: auto;
     margin-bottom: 1rem;
-   
 }
 .articleStyle {
     display: flex;
@@ -61,5 +60,20 @@
     .price {
         font-size: 16px;
         color: #000;
+    }
+}
+
+@media (max-width: 768px) {
+    .houseCard {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .houseCard {
+        grid-template-columns: 1fr; 
+        width: 100%;
+        margin-left:5.2rem ;
     }
 }

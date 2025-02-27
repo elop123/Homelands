@@ -8,7 +8,7 @@ const[review,setReview]= useState([]);
 const[loading, setLoading] = useState(true);
 const[error, setError] = useState(null);
 
-const url=`https://api.mediehuset.net/homelands/reviews`;
+const url=`https://api.mediehuset.net/homelands/reviews`
 
 useEffect(() => {
     fetch(url)
@@ -59,5 +59,6 @@ useEffect(() => {
         <ReviewCard />
     </section>
     </>
-  );
-};
+  )
+}
+

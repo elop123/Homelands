@@ -47,6 +47,7 @@ export const NavBar = () => {
             placeholder="Indtast søgeord"
             className={style.searchInput}
           />
+           <NavLink to={searchWord ? `/search/${searchWord}` : `/allhouses`}></NavLink>
           <button className={style.btn} type="submit">
             <FaSearch size={14} />
           </button>

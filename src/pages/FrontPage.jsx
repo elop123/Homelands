@@ -1,9 +1,9 @@
 import React from 'react'
 import { StaffCard } from '../components/Staff/StaffCard'
 import { Title } from '../components/Title/Title'
-import { Review } from '../components/Review/Review'
 import { HouseCard } from '../components/HouseCard/HouseCard'
 import {Slider} from '../components/Slider/Slider'
+import { Review } from '../components/Review/Review'
 
 export const FrontPage = () => {
   return (
@@ -11,7 +11,7 @@ export const FrontPage = () => {
     <Slider />
     <HouseCard />
     <Title title="Det siger kunderne:" />
-    <Review />
+    <Review/>
     <Title title="Mød vores ansatte" />
     <StaffCard />
     </>

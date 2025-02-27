@@ -7,6 +7,12 @@ import { CiHeart } from 'react-icons/ci'
 import { Modal } from '../Modal/Modal'
 import { UserContext } from '../../context/userContext'
 import house_icon from '../../assets/icons/layout.png'
+import room1 from '../../assets/images/plans/1-room.jpg';
+import room2 from '../../assets/images/plans/2-room-1.jpg';
+import room3 from '../../assets/images/plans/3-room-1.jpg';
+import room4 from '../../assets/images/plans/4-room-1.jpg';
+import room5 from '../../assets/images/plans/5-room-1.jpg';
+import room6 from '../../assets/images/plans/6-room-1.jpg';
 
 export const HouseCardDetails = () => {
 const[houseDetails,setHouseDetails]= useState(null);
@@ -18,6 +24,8 @@ const { favorites, setFavorites } = useContext(UserContext);
 const { id } = useParams();
 
 const url=`https://api.mediehuset.net/homelands/homes/${id}`
+
+
 
 useEffect(() => {
     fetch(url)
@@ -60,6 +68,21 @@ const toggleFavorite = () => {
   }
 }
 
+const plans = [
+  { num_rooms: '1', img: room1 },
+  { num_rooms: '2', img: room2 },
+  { num_rooms: '3', img: room3 },
+  { num_rooms: '4', img: room4 },
+  { num_rooms: '5', img: room5 },
+  { num_rooms: '6', img: room6 }
+];
+
+ //Function to get the floor plan image
+ const getRoomImage = (num_rooms) => {
+  const plan = plans.find((p) => p.num_rooms === num_rooms.toString())
+  return plan ? plan.img : "No images"
+}
+
   return (
     <section className={style.houseCard}>
       
@@ -76,19 +99,19 @@ const toggleFavorite = () => {
           <div className={style.iconsColumn}>
           <div className={style.iconCircle} onClick={() => openModal(<img className={style.modalImg}  src={houseDetails.images[0]?.filename.medium} alt="house_img" />)}>
           <FaCamera size={30} /></div>
-          <div className={style.iconCircle}> 
-            <a href="https://www.flaticon.com/free-icon/layout_5505998" 
-            target="_blank" rel="noopener noreferrer"><img 
-            src={house_icon}
-            alt="House_plan_icon" 
-            style={{ width: '30px', height: '30px' }} onClick={() => openModal(<img src={getRoomImage(houseDetails.num_rooms)} alt="floor_plan" className={style.modalImage} />)}/></a>
+          <div className={style.iconCircle} onClick={() => openModal(<img src={getRoomImage(houseDetails.num_rooms)} alt="floor_plan" className={style.modalImage} />)}>
+              <img 
+                src={house_icon}
+                alt="House_plan_icon" 
+                style={{ width: '30px', height: '30px' }}
+              />
             </div>
           <div className={style.iconCircle} ><FaMapMarkerAlt size={30} /></div>
           <div className={style.iconCircle} onClick={toggleFavorite} >{favorites.includes(houseDetails.id) ? (
-    <FaHeart  style={{ color: "red" }} />
-  ) : (
-    <CiHeart size={30} style={{ color: "black" }} />
-  )}</div>
+          <FaHeart  style={{ color: "red" }} />
+          ) : (
+          <CiHeart size={30} style={{ color: "black" }} />
+          )}</div>
           </div>
           <div className={style.PriceColumn}>
           <p className={style.price}>
@@ -127,7 +150,7 @@ const toggleFavorite = () => {
         <p className={style.text}>{houseDetails.description}</p>
         </div>
         <div className={style.houseContact}>
-        <h2>Kontakt</h2>
+        <h2 className={style.kontakt}>Kontakt</h2>
         <img src={houseDetails.staff.image} alt="staff_img" className={style.staffImage} />
         <p><strong>{houseDetails.staff.firstname} {houseDetails.staff.lastname}</strong></p>
         <p>{houseDetails.staff.position}</p>
