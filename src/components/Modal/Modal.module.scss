@@ -25,15 +25,9 @@
     flex-direction: column;
     width: 600px;
     height: 400px;
-    // &:hover {
-    //   transform: scale(1.3);
-    //   transition: transform 0.3s ease-in-out;
-    // }
   }
   .modalImage {
-    width: 100%; 
-    //max-width: 400px; 
-    //max-height: 300px; 
+    width: 100%;  
     object-fit: contain; 
     display: block;
     margin: auto;

@@ -46,7 +46,7 @@ useEffect(() => {
         } else {
           setHouseDetails(data.item);
         }
-        console.log(data.item);
+        //console.log(data.item);
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

@@ -12,7 +12,7 @@ export const NavBar = () => {
   const [searchWord, setSearchWord] = useState("")
   const [menuOpen, setMenuOpen] = useState(false);
   
-  console.log(searchWord)
+  //console.log(searchWord)
 
   return (
     <nav className={style.navBar}>
@@ -25,7 +25,7 @@ export const NavBar = () => {
       <ul className={`${style.navLink} ${menuOpen ? style.showMenu : ""}`}>
         <li><NavLink to="/" >Forside</NavLink></li>
         <li><NavLink to="/houses">Boliger til salg</NavLink></li>
-         {/*Added Admin link when user is logged in */}
+        
          {userData && <li><NavLink to="/administration">Admin</NavLink></li>}
        
         {userData ? (

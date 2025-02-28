@@ -24,7 +24,7 @@ useEffect(() => {
         } else {
           setReview(data.items);
         }
-        console.log(data.items);
+        //console.log(data.items);
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

@@ -11,7 +11,7 @@ export const AllHouses = ({ filterHouse, sortByPrice }) => {
   const [error, setError] = useState(null);
   
   const { keyword } = useParams(); 
-  console.log('vores keyword:', keyword);
+  //console.log('vores keyword:', keyword);
 
   const navigate = useNavigate();
   const url = `https://api.mediehuset.net/homelands/homes`;
@@ -38,7 +38,7 @@ export const AllHouses = ({ filterHouse, sortByPrice }) => {
 
           setHouse(filteredHouses);
         }
-        console.log("Fetched houses:", data.items);
+        //console.log("Fetched houses:", data.items);
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
