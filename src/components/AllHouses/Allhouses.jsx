@@ -72,6 +72,8 @@ export const AllHouses = ({ filterHouse, sortByPrice }) => {
     energy_label_name === 'E' || energy_label_name === 'F' ? 'red' :
     'gray';
 
+
+    
   return (
     <section className={style.houseCard}>
       {filteredHouses.map((item) => (

@@ -25,8 +25,10 @@ export const NavBar = () => {
       <ul className={`${style.navLink} ${menuOpen ? style.showMenu : ""}`}>
         <li><NavLink to="/" >Forside</NavLink></li>
         <li><NavLink to="/houses">Boliger til salg</NavLink></li>
+         {/*Added Admin link when user is logged in */}
+         {userData && <li><NavLink to="/administration">Admin</NavLink></li>}
+       
         {userData ? (
-        
             <li className={style.logoutBtn} onClick={() => { logout(); navigate("/login"); }}>
               Logout
             </li>

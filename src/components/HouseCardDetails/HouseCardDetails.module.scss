@@ -71,7 +71,7 @@
 .propertyDetails {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr; 
-  gap: 108px;
+  gap: 90px;
   //max-width: 1100px;
   margin: auto;
   padding: 20px 0;
@@ -96,18 +96,13 @@
 .value {
   font-weight: bold;
   text-align: right;
-}
-      
+}    
 .descriptionInfo {
   display: grid;
   grid-template-columns: 2fr 1fr; 
   gap: 40px;
-  //max-width: 1100px;
   margin: 2rem auto ;
-  //padding: 20px 0;
-  //align-items: start;
   width: 80%;
-  
 }
 .houseDescription {
   .text{
@@ -123,7 +118,7 @@ margin-left: 4rem;}
   font-family: $fontText;
   margin-left: 2rem;
 }
-.houseContact h2 {
+.kontakt {
   font-size: 20px;
   font-weight: bold;
   text-align: left;
@@ -143,27 +138,51 @@ margin-left: 4rem;}
   font-weight: bold;
 }
 
+@media(max-width:920px){
+  .infoSection {
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px;
+    width: 90%;
+  }
+  .iconsColumn {
+    flex-wrap: wrap; 
+    justify-content: center;
+    
+  }
+  .propertyDetails {
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px;
+    width: 90%;
+  }
+  .detailsColumn{
+    width: 80%;
+    margin: auto;
+    margin-top: 1rem;
+  }
+}
+
 @media (max-width: 768px) { 
   .infoSection {
     grid-template-columns: 1fr 1fr; 
     gap: 30px;
     width: 90%;
   }
-
   .iconsColumn {
     flex-wrap: wrap; 
     justify-content: center;
+    
   }
-
   .propertyDetails {
     grid-template-columns: 1fr 1fr; 
-    gap: 50px;
+    gap: 10px;
     width: 90%;
   }
-
   .descriptionInfo {
     grid-template-columns: 1fr;
     width: 90%;
+  }
+  .detailsColumn{
+    margin-top: 1rem;
   }
 }
 
@@ -178,9 +197,7 @@ margin-left: 4rem;}
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-
   }
- 
   .descriptionInfo {
     grid-template-columns: 1fr;
     width: 100%;
@@ -191,12 +208,18 @@ margin-left: 4rem;}
   .houseContact, .houseDescription {
     text-align: center;
   }
+  .kontakt{
+    text-align: center;
+  }
   .houseDescription .text {
     padding: 0.5rem;
     font-size: 14px;
   }
   .staffImage {
     width: 100px; 
+  }
+  .detailsColumn{
+    margin-top: 1rem;
   }
 }
       

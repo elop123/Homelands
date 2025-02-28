@@ -1,0 +1,51 @@
+.galleryModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    position: relative;
+  }
+  .galleryImage {
+    max-width: 90%;
+    max-height: 80vh;
+    align-items: center;
+    justify-content: center;
+  }
+  .arrowLeft,
+  .arrowRight {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    align-items: center;
+  }
+  .arrowLeft {
+    left: -50px; 
+  }
+  
+  .arrowRight {
+    right: -50px; 
+  }
+  
+  @media(max-width:600px){
+    .arrowLeft {
+        left: -25px;
+      }
+      .arrowRight {
+        right: -25px; 
+      }
+  }
+
+  @media(max-width:900px){
+    .arrowLeft {
+        left: -20px;
+      }
+      .arrowRight {
+        right: -20px; 
+      }
+  }

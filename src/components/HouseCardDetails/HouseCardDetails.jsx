@@ -15,6 +15,8 @@ import room5 from '../../assets/images/plans/5-room-1.jpg';
 import room6 from '../../assets/images/plans/6-room-1.jpg';
 import room7 from '../../assets/images/plans/7-room-1.jpg';
 import room9 from '../../assets/images/plans/9-room-1.jpg';
+import { Gallery } from '../Gallery/Gallery'
+import { getDaysOnMarket } from '../../helpers/getDaysonMarket'
 
 export const HouseCardDetails = () => {
 const[houseDetails,setHouseDetails]= useState(null);
@@ -24,6 +26,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
 const [modalContent, setModalContent] = useState(null);
 const { favorites, setFavorites } = useContext(UserContext);
 const { id } = useParams();
+const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
 const url=`https://api.mediehuset.net/homelands/homes/${id}`
 
@@ -102,8 +105,9 @@ const plans = [
           <p className={style.house}>Set {houseDetails.num_clicks} gange</p>
           </div>
           <div className={style.iconsColumn}>
-          <div className={style.iconCircle} onClick={() => openModal(<img className={style.modalImg}  src={houseDetails.images[0]?.filename.medium} alt="house_img" />)}>
-          <FaCamera size={30} /></div>
+          <div className={style.iconCircle} onClick={() => openModal(<Gallery houseId={id}/>)}>
+          <FaCamera size={30} />
+          </div>
           <div className={style.iconCircle} onClick={() => openModal(<img src={getRoomImage(houseDetails.num_rooms)} alt="floor_plan" className={style.modalImage} />)}>
               <img 
                 src={house_icon}
@@ -139,10 +143,10 @@ const plans = [
         <div className={style.detailRow}><span className={style.label}>Byggeår</span> <span className={style.value}>{houseDetails.year_construction}</span></div>
         <div className={style.detailRow}><span className={style.label}>Ombygget</span> <span className={style.value}>{houseDetails.year_rebuilt}</span></div>
         <div className={style.detailRow}><span className={style.label}>Energimærke</span> <span className={style.value}>{houseDetails.energy_label_name}</span></div>
-        <div className={style.detailRow}><span className={style.label}>Liggetid</span> <span className={style.value}>{houseDetails.days_on_market} dage</span></div>
+        <div className={style.detailRow}><span className={style.label}>Liggetid</span> <span className={style.value}>{getDaysOnMarket(houseDetails.date_friendly)} dage</span></div>
       </div>
       <div className={style.detailsColumn}>
-        <div className={style.detailRow}><span className={style.label}>Kontantpris</span> <span className={style.value}>{houseDetails.price.toLocaleString("da-DK")}</span></div>
+        <div className={style.detailRow}><span className={style.label}>Kontantpris&nbsp;&nbsp;&nbsp;</span> <span className={style.value}>{houseDetails.price.toLocaleString("da-DK")}</span></div>
         <div className={style.detailRow}><span className={style.label}>Udbetaling</span> <span className={style.value}>{houseDetails.payout.toLocaleString("da-DK")}</span></div>
         <div className={style.detailRow}><span className={style.label}>Brutto ex. ejerudgift &nbsp;</span> <span className={style.value}>{houseDetails.gross.toLocaleString("da-DK")}</span></div>
         <div className={style.detailRow}><span className={style.label}>Netto ex. ejerudgift</span> <span className={style.value}>{houseDetails.net.toLocaleString("da-DK")}</span></div>
@@ -166,8 +170,8 @@ const plans = [
 
           
           <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-          
             {modalContent} 
+           
             
           </Modal>
         </article>
