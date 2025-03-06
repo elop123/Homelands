@@ -65,10 +65,14 @@ const openModal = (content) => {
   setIsModalOpen(true)
 }
 
+// Funktion til at tilføje eller fjerne et hus fra favoritter
 const toggleFavorite = () => {
+   // Tjekker om husets ID allerede findes i favoritter
   if (favorites.includes(houseDetails.id)) {
+     // Hvis huset allerede er i favoritter, fjernes det fra listen
       setFavorites(favorites.filter((fav) => fav !== houseDetails.id));
   } else {
+    // Hvis huset ikke er i favoritter, tilføjes det til listen
       setFavorites([...favorites, houseDetails.id]);
   }
 }
@@ -87,7 +91,9 @@ const plans = [
 
  //Function to get the floor plan image
  const getRoomImage = (num_rooms) => {
+   // Finder den plan, hvor antallet af værelser matcher det givne antal (konverteret til en streng)
   const plan = plans.find((p) => p.num_rooms === num_rooms.toString())
+  // Hvis en matchende plan findes, returneres billedet, ellers returneres "No images"
   return plan ? plan.img : "No images"
 }
 

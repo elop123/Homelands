@@ -56,17 +56,25 @@ export const AllHouses = ({ filterHouse, sortByPrice }) => {
   let filteredHouses = house.length > 0 ? house : [];
 
   // Apply filters
+  // Hvis filterHouse har en værdi, filtrer listen af huse
   filteredHouses = filterHouse
+  // Konverter både husets type og filterHouse til små bogstaver for at undgå case-sensitiv sammenligning
     ? filteredHouses.filter(item => item.type.toLowerCase() === filterHouse.toLowerCase())
+    // Hvis filterHouse ikke er sat, behold den originale liste uændret
     : filteredHouses;
 
   // Sort by price
+  // Filtrer listen af huse og behold kun de huse, hvor prisen er mindre end eller lig med den angivne værdi i sortByPrice
   filteredHouses = filteredHouses.filter(item => item.price <= sortByPrice);
 
   //Sort by energy_label
+  // Sorter listen af huse i stigende rækkefølge baseret på prisen (fra laveste til højeste)
   filteredHouses = filteredHouses.sort((a, b) => a.price - b.price);
+
+  // Funktion til at bestemme farven baseret på energimærket
   const energyLabelByColor = (energy_label_name) => 
-    energy_label_name === 'A' ? 'green' :
+    // Hvis energimærket er 'A', returnér 'grøn'
+    energy_label_name === 'A' ? 'green' : 
     energy_label_name === 'B' || energy_label_name === 'C' ? 'yellow' :
     energy_label_name === 'D' ? 'orange' :
     energy_label_name === 'E' || energy_label_name === 'F' ? 'red' :
